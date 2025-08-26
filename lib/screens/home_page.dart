@@ -1,10 +1,8 @@
+import 'inventario_page.dart';
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'inventario_page.dart';
-import 'registro_ventas_page.dart';
-import 'historial_ventas_page.dart';
+import 'registro_inventario_page.dart';
 import 'login.dart';
 import 'ajustes.dart';
 
@@ -138,7 +136,7 @@ class HomePage extends StatelessWidget {
       crossAxisCount: 2,
       mainAxisSpacing: 16,
       crossAxisSpacing: 16,
-      childAspectRatio: 0.65, // Reducido para dar más altura
+      childAspectRatio: 0.65,
       children: [
         _buildMenuCard(
           context,
@@ -146,15 +144,15 @@ class HomePage extends StatelessWidget {
           'Registra nuevas ventas',
           Icons.point_of_sale_outlined,
           Colors.blue,
-          () => _navigateToPage(context, const InventarioPage()),
+          () => _navigateToPage(context, const RegistroVentasPage()),
         ),
         _buildMenuCard(
           context,
-          'Ingresar Productos',
+          'Registro de Inventario',
           'Añade nuevos productos',
           Icons.add_box_outlined,
           const Color(0xFF4CAF50),
-          () => _navigateToPage(context, const RegistroVentasPage()),
+          () => _navigateToPage(context, const RegistroVentasPage()), // Cambiado: era RegistroInventarioPage()
         ),
         _buildMenuCard(
           context,
@@ -162,7 +160,7 @@ class HomePage extends StatelessWidget {
           'Ventas realizadas',
           Icons.history_outlined,
           Colors.green,
-          () => _navigateToPage(context, const RegistroVentasPage()),
+          () => _showComingSoon(context, 'Historial de Ventas'),
         ),
         _buildMenuCard(
           context,
@@ -170,7 +168,7 @@ class HomePage extends StatelessWidget {
           'Ver productos disponibles',
           Icons.inventory_2_outlined,
           Colors.orange,
-          () => _navigateToPage(context, const HistorialVentasPage()),
+          () => _navigateToPage(context, const InventarioPage1()), // Este ya estaba correcto
         ),
       ],
     );
@@ -232,9 +230,8 @@ class HomePage extends StatelessWidget {
         onTap: onPressed,
         borderRadius: BorderRadius.circular(20),
         child: Container(
-          height:
-              double.infinity, // Ocupa toda la altura disponible del GridView
-          padding: const EdgeInsets.all(16), // Reducido de 20 a 16
+          height: double.infinity,
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             gradient: LinearGradient(
@@ -247,13 +244,12 @@ class HomePage extends StatelessWidget {
             ),
           ),
           child: Column(
-            mainAxisSize:
-                MainAxisSize.max, // Cambiado para ocupar toda la altura
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                padding: const EdgeInsets.all(12), // Reducido de 16 a 12
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   color: color.withOpacity(0.15),
                   shape: BoxShape.circle,
@@ -264,7 +260,7 @@ class HomePage extends StatelessWidget {
                   color: color,
                 ),
               ),
-              const SizedBox(height: 12), // Reducido de 16 a 12
+              const SizedBox(height: 12),
               Text(
                 title,
                 style: theme.textTheme.titleMedium?.copyWith(
@@ -272,18 +268,18 @@ class HomePage extends StatelessWidget {
                   color: theme.colorScheme.onSurface,
                 ),
                 textAlign: TextAlign.center,
-                maxLines: 2, // Permite máximo 2 líneas
-                overflow: TextOverflow.ellipsis, // Añade "..." si es muy largo
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 2), // Reducido de 4 a 2
+              const SizedBox(height: 2),
               Text(
                 subtitle,
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: theme.colorScheme.onSurface.withOpacity(0.7),
                 ),
                 textAlign: TextAlign.center,
-                maxLines: 2, // Permite máximo 2 líneas
-                overflow: TextOverflow.ellipsis, // Añade "..." si es muy largo
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),
