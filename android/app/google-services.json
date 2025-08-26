@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "714464708578",
+    "project_id": "registroventas-eb78f",
+    "storage_bucket": "registroventas-eb78f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714464708578:android:24630a6b1d8a466df55bbb",
+        "android_client_info": {
+          "package_name": "com.example.registro_ventas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5WS4YDfu_YNWIiOUqiVLw1yKtllsy5KE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714464708578:android:326a4d80299d19acf55bbb",
+        "android_client_info": {
+          "package_name": "com.example.registro_ventas_nuevo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5WS4YDfu_YNWIiOUqiVLw1yKtllsy5KE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
